@@ -1,4 +1,5 @@
 import os
+import subprocess
 
 def processSingleFile(file_path, module_name):
     file_str = str
@@ -11,10 +12,11 @@ def processSingleFile(file_path, module_name):
         with open("modules/" + module_name, "r") as file:
             module_str = file.read()
         file_str = file_str[0:(begin + len(str("<!-- " + module_name + " -->")))] + \
-            "\n" + module_str + "\n" + file_str[end:len(file_str)]
-        if file_path == "index.html":
-            print(file_str)
-
+            "\n\n" + module_str + "\n\n" + file_str[end:len(file_str)]
+        os.remove(file_path)
+        with open(file_path, "w+") as file:
+            file.write(file_str)
+        
     except ValueError:
         pass
 
@@ -45,5 +47,6 @@ for file in suitable_files:
     for module in suitable_modules:
         processSingleFile(file, module)
 
-
+prog = subprocess.Popen("/home/ilya/.local/bin/djlint *.html --indent 2 --reformat", shell=True, stdout=subprocess.PIPE)
+prog.communicate()[0]
 
