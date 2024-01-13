@@ -1,6 +1,15 @@
 import os
 import subprocess
 
+'''
+    pip install djlint
+
+    <!-- nav.html -->
+        Block should be here
+        
+    <!-- nav.html -->
+'''
+
 def processSingleFile(file_path, module_name):
     file_str = str
     with open(file_path, "r") as file:
@@ -47,6 +56,6 @@ for file in suitable_files:
     for module in suitable_modules:
         processSingleFile(file, module)
 
-prog = subprocess.Popen("/home/ilya/.local/bin/djlint *.html --indent 2 --reformat", shell=True, stdout=subprocess.PIPE)
+prog = subprocess.Popen("djlint *.html modules/*.html --indent 2 --reformat", shell=True, stdout=subprocess.PIPE)
 prog.communicate()[0]
 
