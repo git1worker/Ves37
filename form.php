@@ -23,12 +23,13 @@ if(isset($_POST["name"]))
         {
                 $ip=$_SERVER["REMOTE_ADDR"]; // Вычисляем ip пользователя
                 $brose=$_SERVER["HTTP_USER_AGENT"]; // Вычисляем браузер пользователя
-                $to = "ilya.rudenko2005@ail.ru"; // Ваш email адрес
-                $subject = "Сообщение c сайта ves37.com"; // тема письма
+                $to = "vladim-b@mail.ru"; // Ваш email адрес
+                $subject = "Сообщение c сайта ves37.ru"; // тема письма
                 $headers .= "Content-Type: text/html;
                 ";
                 $headers .= "Отправитель: Посетитель сайта"; // Отправитель письма
                 $message = "
+                Сообщение c сайта ves37.ru
                 Имя: $name<br>
                 Email: $email<br>
                 Текст: $msg<br><br>

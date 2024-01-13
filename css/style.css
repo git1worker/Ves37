@@ -142,13 +142,6 @@ a, h1, h2 ,h3 ,h4 ,h5, h6,span,p,img{
     margin-top:10px;
 }
 
-.instagram{
-    background-image: url(../img/instagram.svg);
-    height: 30px;
-    width: 30px;
-    background-size: 100%;
-
-}
 .whatsapp{
     background-size: 100%;
     
